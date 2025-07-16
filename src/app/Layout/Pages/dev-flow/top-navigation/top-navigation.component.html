@@ -1,0 +1,74 @@
+<div class="top-nav">
+  <!-- Left Section -->
+  <div class="nav-left">
+    <h1 class="nav-title">Dashboard</h1>
+    <!-- <div class="search-container">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Search..." class="search-input" />
+    </div> -->
+  </div>
+
+  <!-- Right Section -->
+  <div class="nav-right">
+    <!-- Notifications -->
+    <button class="notification-button">
+      <span class="notification-icon">🔔</span>
+      <div class="notification-badge"></div>
+    </button>
+
+    <!-- Profile Dropdown -->
+    <div class="profile-dropdown">
+      <button (click)="toggleDropdown()" class="profile-button">
+        <div class="profile-avatar">
+          {{ getInitials(this.currentUser.sub) }}
+        </div>
+        <div class="profile-info">
+          <p class="profile-email">{{ userEmail }}</p>
+          <p class="profile-role">{{ loggeduser }}</p>
+        </div>
+        <span class="dropdown-arrow"
+          ><img src="./assets/icons/dropdown.svg"
+        /></span>
+      </button>
+
+      <div *ngIf="isDropdownOpen" class="dropdown-menu">
+        <div class="dropdown-content">
+          <div class="dropdown-header">My Account</div>
+          <div class="dropdown-separator"></div>
+
+          <button (click)="onProfileClick()" class="dropdown-item">
+            <div class="dropdown-icon profile-icon">
+              <span>👤</span>
+            </div>
+            <div class="dropdown-text">
+              <p class="dropdown-title">Profile</p>
+              <p class="dropdown-subtitle">Manage your account</p>
+            </div>
+          </button>
+
+          <button (click)="onSettingsClick()" class="dropdown-item">
+            <div class="dropdown-icon settings-icon">
+              <span>⚙️</span>
+            </div>
+            <div class="dropdown-text">
+              <p class="dropdown-title">Settings</p>
+              <p class="dropdown-subtitle">Preferences & more</p>
+            </div>
+          </button>
+
+          <div class="dropdown-separator"></div>
+
+          <button (click)="onLogout()" class="dropdown-item logout-item">
+            <div class="dropdown-icon logout-icon">
+              <span>🚪</span>
+            </div>
+            <div class="dropdown-text">
+              <p class="dropdown-title">Logout</p>
+              <p class="dropdown-subtitle">Sign out of your account</p>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
