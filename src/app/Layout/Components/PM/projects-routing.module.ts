@@ -6,6 +6,7 @@ import { DevFlowComponent } from '../../Pages/dev-flow/dev-flow/dev-flow.compone
 import { PmProjectsComponent } from './pm-projects/pm-projects.component';
 import { TasksComponent } from './Tasks/tasks/tasks.component';
 import { ResourcesComponent } from './resources/resources/resources.component';
+import { IssuesComponent } from './Issues/issues/issues.component';
 
 const routes: Routes = [
   {
@@ -20,7 +21,7 @@ const routes: Routes = [
       { path: 'projects', component: PmProjectsComponent },
       { path: 'tasks', component: TasksComponent },
       { path: 'resources', component: ResourcesComponent },
-      // { path: 'crm', component: CrmDashboardComponent },
+      { path: 'issues', component: IssuesComponent },
     ],
   },
 ];

@@ -5,7 +5,7 @@
     justify-content: end 
 .button    
     height: 42px
-    padding: 0px 10px
+    // padding: 0px 10px
 
 :host ::ng-deep.ant-layout    
   width: max-content
@@ -29,7 +29,7 @@
   padding: 2rem 0
   background: #f3f4f6
   min-height: 60vh
-  width: max-content
+  // width: max-content
 
 .kanban-column
   background: #fff
@@ -51,6 +51,8 @@
   letter-spacing: 0.5px
 
 .kanban-task-card
+  display: flex
+  justify-content: space-between
   background: #f9fafb
   border-radius: 0.5rem
   box-shadow: 0 1px 3px rgba(0,0,0,0.04)
@@ -100,12 +102,37 @@
 .btn
     width: 200px
     height: 40px    
+.taskbtn
+    display: flex
+    align-items: center
+    height: 25px
+    width: 65px
+    justify-content: center
+    border-radius: 5px
+.button
+  display: flex
+  justify-content: space-between
+.taskbtns
+    display: flex  
+    flex-direction: column
+    gap: 5px
 
+.taskbtn_assignee    
 :host ::ng-deep .anticon svg    
   color: #000000
 
 :host ::ng-deep .ant-select-arrow
-  top:44%  
+  top:50%  
 
 :host ::ng-deep .ant-select  
-  width: 100px  
+  width: 200px  
+.buttontask .ant-dropdown-trigger 
+  width: auto
+  height: 35px 
+.buttontask .ant-select 
+  width: 100% 
+
+::ng-deep .buttontask .ant-select-single .ant-select-selector .ant-select-selection-placeholder
+  line-height: 35px !important
+::ng-deep .buttontask .ant-select-single:not(.ant-select-customize-input) .ant-select-selector
+  height: 35px !important

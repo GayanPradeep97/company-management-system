@@ -13,6 +13,8 @@ import { SettingComponent } from './view-project/setting/setting.component';
 import { AddNewTaskComponent } from './Tasks/add-new-task/add-new-task.component';
 import { ResourcesComponent } from './resources/resources/resources.component';
 import { AddNewResourcesComponent } from './resources/add-new-resources/add-new-resources.component';
+import { IssuesComponent } from './Issues/issues/issues.component';
+import { AddNewIssuesComponent } from './Issues/add-new-issues/add-new-issues.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { AddNewResourcesComponent } from './resources/add-new-resources/add-new-
     AddNewTaskComponent,
     ResourcesComponent,
     AddNewResourcesComponent,
+    IssuesComponent,
+    AddNewIssuesComponent,
   ],
   imports: [CommonModule, ProjectsRoutingModule, SharedModule],
 })

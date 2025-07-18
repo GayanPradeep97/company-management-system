@@ -25,7 +25,6 @@ import { SidebarComponent } from './Layout/Pages/dev-flow/sidebar/sidebar.compon
 import { TopNavigationComponent } from './Layout/Pages/dev-flow/top-navigation/top-navigation.component';
 import { DevDashboardModule } from './Layout/Components/dev-dashboard/dev-dashboard.module';
 import { ProjectsModule } from './Layout/Components/PM/projects.module';
-import { NzIconModule } from 'ng-zorro-antd/icon';
 import { HrModule } from './Layout/Components/HR/hr.module';
 
 @NgModule({
@@ -55,7 +54,6 @@ import { HrModule } from './Layout/Components/HR/hr.module';
     NgOtpInputModule,
     DevDashboardModule,
     ProjectsModule,
-    NzIconModule,
     HrModule,
   ],
   exports: [DecimalFormatDirective],

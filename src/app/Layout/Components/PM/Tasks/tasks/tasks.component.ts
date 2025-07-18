@@ -8,6 +8,7 @@ import { TaskService } from 'src/app/_services/pm-services/task.service';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { AddNewTaskComponent } from '../add-new-task/add-new-task.component';
 import { ProjectsService } from 'src/app/_services/pm-services/projects.service';
+import { AuthserviceService } from 'src/app/_services/authservice.service';
 
 interface Task {
   title: string;
@@ -32,7 +33,8 @@ export class TasksComponent {
   pageSize: any = 10;
   totalRecord: any;
   currentPageIndex = 1;
-  // columns: any = [];
+  AllMembers: any = [];
+  assigneeChange: any;
   columns: KanbanColumn[] = [
     { title: 'To Do', status: 'to_do', tasks: [] },
     { title: 'In Progress', status: 'in_progress', tasks: [] },
@@ -49,7 +51,8 @@ export class TasksComponent {
   constructor(
     private taskService: TaskService,
     private modalService: NzModalService,
-    private projectsService: ProjectsService
+    private projectsService: ProjectsService,
+    private authService: AuthserviceService
   ) {}
 
   ngOnInit() {
@@ -58,14 +61,19 @@ export class TasksComponent {
     this.getAllprojectTasks();
   }
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<any[]>) {
+    const droppedTask = event.previousContainer.data[event.previousIndex];
+    console.log('Dropped Task:', droppedTask);
+
     if (event.previousContainer === event.container) {
+      // Same column
       moveItemInArray(
         event.container.data,
         event.previousIndex,
         event.currentIndex
       );
     } else {
+      // Different column
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
@@ -73,6 +81,22 @@ export class TasksComponent {
         event.currentIndex
       );
     }
+
+    this.updateEndpoint(droppedTask);
+  }
+
+  updateEndpoint(values: any) {
+    const data: any = [];
+    data['status'] = values.status;
+    data['id'] = values.id;
+
+    this.taskService.updaterTaskEndpoint(data).subscribe((res: any) => {
+      if (res) {
+        this.getAllprojectTasks();
+        this.getAllTaskslist();
+        this.getAllprojects();
+      }
+    });
   }
 
   getAllTaskslist() {
@@ -110,11 +134,24 @@ export class TasksComponent {
     this.projectId = id;
     console.log('project id', id);
     this.getAllprojectTasks();
+    this.getAllMembers(this.projectId);
   }
   getStatus(id: any) {
     this.status = id;
     console.log('project id', id);
     this.getAllprojectTasks();
+  }
+
+  changeAssignee(value: any, taskdata: any) {
+    this.assignee = value;
+    this.assigneechange(taskdata);
+  }
+
+  assigneechange(taskdata: any) {
+    const data: any = [];
+    data['id'] = taskdata.id;
+    data['assignee_id'] = this.assignee;
+    this.taskService.changeAssigneeEndpoint(data).subscribe((res: any) => {});
   }
 
   getAllprojectTasks() {
@@ -151,7 +188,20 @@ export class TasksComponent {
     });
   }
 
-  addNewTask() {
+  getAllMembers(id: any) {
+    const data: any = [];
+    data['skip'] = this.pageNumber;
+    data['limit'] = this.pageSize;
+    data['id'] = id;
+    this.projectsService.getALlmembers(data).subscribe((res: any) => {
+      if (res) {
+        console.log(res);
+        this.AllMembers = res['data'];
+      }
+    });
+  }
+
+  addNewTask(index: any) {
     const modal = this.modalService.create({
       nzTitle: 'Add Task',
       nzContent: AddNewTaskComponent,
@@ -159,10 +209,63 @@ export class TasksComponent {
       nzWidth: 800,
       nzClassName: 'add-task',
     });
+    modal.componentInstance!.index = index;
+    modal.afterClose.subscribe((res: any) => {
+      this.getAllprojectTasks();
+      this.getAllTaskslist();
+      this.getAllprojects();
+    });
+  }
+  editTask(Taskdata: any, index: any) {
+    console.log('task data', Taskdata.id);
+    const modal = this.modalService.create({
+      nzTitle: 'Edit Task',
+      nzContent: AddNewTaskComponent,
+      nzFooter: null,
+      nzWidth: 800,
+      nzClassName: 'add-task',
+    });
+    modal.componentInstance!.data = Taskdata;
+    modal.componentInstance!.index = index;
+    modal.afterClose.subscribe((res: any) => {
+      this.getAllprojectTasks();
+      this.getAllTaskslist();
+      this.getAllprojects();
+    });
   }
 
+  viewTask(Taskdata: any, index: any) {
+    console.log('task data', Taskdata.id);
+    const modal = this.modalService.create({
+      nzTitle: 'View Task',
+      nzContent: AddNewTaskComponent,
+      nzFooter: null,
+      nzWidth: 800,
+      nzClassName: 'add-task',
+    });
+    modal.componentInstance!.data = Taskdata;
+    modal.componentInstance!.index = index;
+    modal.afterClose.subscribe((res: any) => {
+      this.getAllprojectTasks();
+      this.getAllTaskslist();
+      this.getAllprojects();
+    });
+  }
+
+  deleteTask(data: any) {
+    this.taskService.deleteTaskDetails(data.id).subscribe((res: any) => {
+      if (res) {
+        this.getAllprojectTasks();
+        this.getAllTaskslist();
+        this.getAllprojects();
+      }
+    });
+  }
   pageIndexChange(selectedIndex: any) {
     this.currentPageIndex = selectedIndex;
     this.pageNumber = selectedIndex;
+    this.getAllTaskslist();
+    this.getAllprojects();
+    this.getAllprojectTasks();
   }
 }

@@ -4,6 +4,52 @@
       <div nz-col nzLg="12" nzXs="24" nzSm="12" nzMd="12">
         <nz-form-item>
           <nz-form-label
+            >Project
+            <span class="required-mark">*</span>
+          </nz-form-label>
+          <nz-form-control>
+            <nz-select
+              nzShowSearch
+              nzPlaceHolder="project"
+              nzSuffixIcon="caret-down"
+              nzAllowClear="true"
+              formControlName="project"
+              (ngModelChange)="getProjectId($event)"
+            >
+              <nz-option
+                *ngFor="let project of allprojects"
+                [nzValue]="project.id"
+                [nzLabel]="project.name"
+              ></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzLg="12" nzXs="24" nzSm="12" nzMd="12">
+        <nz-form-item>
+          <nz-form-label
+            >Assignee <span class="required-mark">*</span></nz-form-label
+          >
+          <nz-select
+            nzShowSearch
+            nzPlaceHolder="assignee"
+            nzSuffixIcon="caret-down"
+            nzAllowClear="true"
+            formControlName="assignee"
+          >
+            <!-- <nz-option
+              *ngFor="let Assignee of AllMembers"
+              [nzValue]="Assignee.id"
+              [nzLabel]="Assignee.name"
+            ></nz-option> -->
+          </nz-select>
+        </nz-form-item>
+      </div>
+    </div>
+    <div nz-row class="row1" [nzGutter]="10">
+      <div nz-col nzLg="12" nzXs="24" nzSm="12" nzMd="12">
+        <nz-form-item>
+          <nz-form-label
             >Task Title
             <span class="required-mark">*</span>
           </nz-form-label>
@@ -127,9 +173,9 @@
         nzMd="6"
         nz-button
         class="btn btn__high_orange"
-        (click)="createNewproject()"
+        (click)="index === 'edit' ? UpdateTaskDetails() : createNewproject()"
       >
-        Add New Task
+        {{ index === "edit" ? "Update Task" : "Create  New Task" }}
       </button>
     </div>
   </form>

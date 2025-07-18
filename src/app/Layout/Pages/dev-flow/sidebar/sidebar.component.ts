@@ -34,6 +34,7 @@ export class SidebarComponent {
   }
 
   onItemClick(itemId: string) {
+    console.log('onItemClick', itemId);
     this.itemClick.emit(itemId);
   }
   navigateToDashboard() {

@@ -455,6 +455,7 @@ export const commonEnvironment = {
   //sahan API ------------------------------------------
   authenticate: BASE_URL + '8000/auth/login',
   refresh: BASE_URL + '8000/auth/refresh-token',
+  getUsers: BASE_URL + '8000/auth/users',
   //privilages
   getPrivileges: BASE_URL + '8000/auth/roles/permissions',
   getUserDetails: BASE_URL + '8000/auth/users/me',
@@ -465,6 +466,7 @@ export const commonEnvironment = {
   getProjectDetailsById: BASE_URL + '8003/projects/', //project Id
   updateProjectDetails: BASE_URL + '8003/projects/', //project Id
   deleteProjectDetails: BASE_URL + '8003/projects/', //project Id
+  getProjectMembers: BASE_URL + '8003/projects/',
 
   //members
   getMembers: BASE_URL + '8003/projects/',
@@ -480,6 +482,11 @@ export const commonEnvironment = {
   getAllTaskList: BASE_URL + '8003/tasks/statuses',
   createNewTask: BASE_URL + '8003/tasks/',
   getProjectTasks: BASE_URL + '8003/tasks/',
+  getTaskDetailsById: BASE_URL + '8003/tasks/',
+  updateTaskDetails: BASE_URL + '8003/tasks/',
+  deleteTaskDetails: BASE_URL + '8003/tasks/',
+  updateTaskEndpoint: BASE_URL + '8003/tasks/',
+  changeAssigneeEndpoint: BASE_URL + '8003/tasks/',
 
   //resources
   getAllresourcesList: BASE_URL + '8003/resources/',
@@ -487,4 +494,11 @@ export const commonEnvironment = {
   getREsourcesData: BASE_URL + '8003/resources/',
   updateResources: BASE_URL + '8003/resources/',
   deleteResources: BASE_URL + '8003/resources/',
+
+  //issues
+  getAllissuesList: BASE_URL + '8003/qa/issues/',
+  addNewIssues: BASE_URL + '8003/qa/issues/',
+  getIssuesData: BASE_URL + '8003//qa/issues/',
+  updateIssues: BASE_URL + '8003/qa/issues/',
+  deleteIssues: BASE_URL + '8003/qa/issues/',
 };

@@ -129,4 +129,20 @@ export class AuthserviceService {
       })
     );
   }
+
+  getAllUsers(data: any) {
+    const url = environment.getUsers;
+    let urlParams = new HttpParams();
+    data.skip ? (urlParams = urlParams.append('skip', data.skip)) : null;
+    data.limit ? (urlParams = urlParams.append('limit', data.limit)) : null;
+    return this.http.get(url, { params: urlParams }).pipe(
+      catchError((err) => {
+        return this.commonService.catchError(err);
+      }),
+      map((response: any) => {
+        // this.responseHandler();
+        return response;
+      })
+    );
+  }
 }

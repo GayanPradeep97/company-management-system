@@ -61,4 +61,63 @@ export class TaskService {
       })
     );
   }
+
+  getTaskDetailsbyId(id: any) {
+    const url = environment.getTaskDetailsById + id;
+    return this.http.get(url).pipe(
+      catchError((error) => {
+        return this.commonService.catchError(error);
+      }),
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+
+  updateTaskDetails(id: any, data: any) {
+    const url = environment.updateTaskDetails + id;
+    return this.http.put(url, data).pipe(
+      catchError((error) => {
+        return this.commonService.catchError(error);
+      }),
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+
+  deleteTaskDetails(id: any) {
+    const url = environment.updateTaskDetails + id;
+    return this.http.delete(url).pipe(
+      catchError((error) => {
+        return this.commonService.catchError(error);
+      }),
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+  updaterTaskEndpoint(data: any) {
+    const url = environment.updateTaskDetails + data.id + '/status';
+    return this.http.put(url, data.status).pipe(
+      catchError((error) => {
+        return this.commonService.catchError(error);
+      }),
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+
+  changeAssigneeEndpoint(data: any) {
+    const url = environment.changeAssigneeEndpoint + data.id + '/assignee';
+    return this.http.put(url, data.assignee_id).pipe(
+      catchError((error) => {
+        return this.commonService.catchError(error);
+      }),
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
 }

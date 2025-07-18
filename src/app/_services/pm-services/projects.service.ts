@@ -81,9 +81,9 @@ export class ProjectsService {
   getALlmembers(data: any) {
     const url = environment.getMembers + data.id + '/members';
     let urlParams = new HttpParams();
-    urlParams = urlParams.append('skip', data.skip);
-    urlParams = urlParams.append('limit', data.limit);
-    urlParams = urlParams.append('search', data.search);
+    data.skip ? (urlParams = urlParams.append('skip', data.skip)) : null;
+    data.limit ? (urlParams = urlParams.append('limit', data.limit)) : null;
+    data.search ? (urlParams = urlParams.append('search', data.search)) : null;
     return this.http.get(url, { params: urlParams }).pipe(
       catchError((error) => {
         return this.commonService.catchError(error);
