@@ -1,11 +1,14 @@
 <div class="top-nav">
   <!-- Left Section -->
   <div class="nav-left">
-    <h1 class="nav-title">Dashboard</h1>
-    <!-- <div class="search-container">
-      <span class="search-icon">🔍</span>
-      <input type="text" placeholder="Search..." class="search-input" />
-    </div> -->
+    <nz-breadcrumb
+      [nzSeparator]="iconTemplate"
+      *ngFor="let segment of segments; let i = index"
+    >
+      <nz-breadcrumb-item [routerLink]="getBreadcrumbLink(i)">{{
+        segments[i]
+      }}</nz-breadcrumb-item>
+    </nz-breadcrumb>
   </div>
 
   <!-- Right Section -->
@@ -34,15 +37,13 @@
       <div *ngIf="isDropdownOpen" class="dropdown-menu">
         <div class="dropdown-content">
           <div class="dropdown-header">My Account</div>
-          <div class="dropdown-separator"></div>
 
           <button (click)="onProfileClick()" class="dropdown-item">
             <div class="dropdown-icon profile-icon">
               <span>👤</span>
             </div>
             <div class="dropdown-text">
-              <p class="dropdown-title">Profile</p>
-              <p class="dropdown-subtitle">Manage your account</p>
+              <p class="title">Profile</p>
             </div>
           </button>
 
@@ -51,20 +52,16 @@
               <span>⚙️</span>
             </div>
             <div class="dropdown-text">
-              <p class="dropdown-title">Settings</p>
-              <p class="dropdown-subtitle">Preferences & more</p>
+              <p class="title">Settings</p>
             </div>
           </button>
-
-          <div class="dropdown-separator"></div>
 
           <button (click)="onLogout()" class="dropdown-item logout-item">
             <div class="dropdown-icon logout-icon">
               <span>🚪</span>
             </div>
             <div class="dropdown-text">
-              <p class="dropdown-title">Logout</p>
-              <p class="dropdown-subtitle">Sign out of your account</p>
+              <p class="title">Logout</p>
             </div>
           </button>
         </div>
@@ -72,3 +69,9 @@
     </div>
   </div>
 </div>
+<ng-template #iconTemplate>
+  <span class="breadcrumb-separator">
+    <!-- Put your icon here, e.g. SVG or font icon -->
+    <img src="./assets/icons/right-arrow.png" />
+  </span>
+</ng-template>

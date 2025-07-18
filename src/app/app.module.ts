@@ -23,11 +23,10 @@ import { NgOtpInputModule } from 'ng-otp-input';
 import { DevFlowComponent } from './Layout/Pages/dev-flow/dev-flow/dev-flow.component';
 import { SidebarComponent } from './Layout/Pages/dev-flow/sidebar/sidebar.component';
 import { TopNavigationComponent } from './Layout/Pages/dev-flow/top-navigation/top-navigation.component';
-import { DevDashboardComponent } from './Layout/Components/dev-dashboard/dev-dashboard.component';
-import { PmDashboardComponent } from './Layout/Components/PM/pm-dashboard/pm-dashboard.component';
-import { PmProjectsComponent } from './Layout/Components/PM/pm-projects/pm-projects.component';
 import { DevDashboardModule } from './Layout/Components/dev-dashboard/dev-dashboard.module';
 import { ProjectsModule } from './Layout/Components/PM/projects.module';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { HrModule } from './Layout/Components/HR/hr.module';
 
 @NgModule({
   declarations: [
@@ -56,6 +55,8 @@ import { ProjectsModule } from './Layout/Components/PM/projects.module';
     NgOtpInputModule,
     DevDashboardModule,
     ProjectsModule,
+    NzIconModule,
+    HrModule,
   ],
   exports: [DecimalFormatDirective],
   providers: [

@@ -28,9 +28,9 @@ export class ProjectsService {
   getALlProjects(data: any) {
     const url = environment.getProjects;
     let urlParams = new HttpParams();
-    urlParams = urlParams.append('skip', data.skip);
-    urlParams = urlParams.append('limit', data.limit);
-    urlParams = urlParams.append('search', data.search);
+    data.skip ? (urlParams = urlParams.append('skip', data.skip)) : null;
+    data.limit ? (urlParams = urlParams.append('limit', data.limit)) : null;
+    data.search ? (urlParams = urlParams.append('search', data.search)) : null;
     return this.http.get(url, { params: urlParams }).pipe(
       catchError((error) => {
         return this.commonService.catchError(error);
@@ -85,6 +85,80 @@ export class ProjectsService {
     urlParams = urlParams.append('limit', data.limit);
     urlParams = urlParams.append('search', data.search);
     return this.http.get(url, { params: urlParams }).pipe(
+      catchError((error) => {
+        return this.commonService.catchError(error);
+      }),
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+
+  creatememberRole(data: any, id: any) {
+    const url = environment.createMember + id + '/members';
+    let urlParams = new HttpParams();
+    return this.http.post(url, data).pipe(
+      catchError((error) => {
+        return this.commonService.catchError(error);
+      }),
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+
+  updateMemberRole(data: any, id: any) {
+    const url =
+      environment.updateMemberDetails +
+      id.project_id +
+      '/members/' +
+      id.user_id +
+      '/role';
+    return this.http.put(url, data).pipe(
+      catchError((error) => {
+        return this.commonService.catchError(error);
+      }),
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+
+  deleteMemberRole(id: any) {
+    const url =
+      environment.updateMemberDetails +
+      id.project_id +
+      '/members/' +
+      id.user_id;
+
+    return this.http.delete(url).pipe(
+      catchError((error) => {
+        return this.commonService.catchError(error);
+      }),
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+
+  //--------------------------------------Settings------------------------------
+  getALlsettings(data: any) {
+    const url = environment.getAllsettings + data + '/settings';
+
+    return this.http.get(url).pipe(
+      catchError((error) => {
+        return this.commonService.catchError(error);
+      }),
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+
+  updatesettings(data: any, id: any) {
+    const url = environment.getAllsettings + id + '/settings';
+
+    return this.http.put(url, data).pipe(
       catchError((error) => {
         return this.commonService.catchError(error);
       }),

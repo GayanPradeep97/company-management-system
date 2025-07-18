@@ -39,20 +39,11 @@
 
         <td>
           <div class="border-middle btn-section">
-            <button class="action-button view" title="View">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                <circle cx="12" cy="12" r="3" />
-              </svg>
-            </button>
-            <button class="action-button edit" title="Edit">
+            <button
+              class="action-button edit"
+              title="Edit"
+              (click)="editproject(data, 'edit')"
+            >
               <svg
                 width="16"
                 height="16"
@@ -67,7 +58,11 @@
                 <path d="m18.5 2.5 3 3L12 15l-4 1 1-4 9.5-9.5z" />
               </svg>
             </button>
-            <button class="action-button delete" title="Delete">
+            <button
+              class="action-button delete"
+              title="Delete"
+              (click)="deleteproject(data)"
+            >
               <svg
                 width="16"
                 height="16"

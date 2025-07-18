@@ -38,6 +38,8 @@ import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 
 @NgModule({
   declarations: [],
@@ -84,6 +86,8 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
     NzSpaceModule,
     NzToolTipModule,
     AngularEditorModule,
+    DragDropModule,
+    NzBreadCrumbModule,
   ],
 })
 export class SharedModule {}

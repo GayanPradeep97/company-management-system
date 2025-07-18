@@ -50,6 +50,7 @@ export class DevDashboardComponent {
       next: (res) => {
         if (res) {
           console.log('roleId', res['role']);
+          this.dataService.userId = res['id'];
           this.getPrivilages(res['role']);
         }
       },

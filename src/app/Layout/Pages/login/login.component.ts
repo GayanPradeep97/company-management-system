@@ -216,9 +216,6 @@ export class LoginComponent {
           this.dataService.loggedInUser = this.loginForm?.value.userName;
           this.dataService.loggedInPassword = this.loginForm?.value.password;
           this.router.navigateByUrl('');
-
-          // this.closeModal();
-          // this.getUserDEtails();
         } else if (data['errorDescription']) {
           // this.notificationService.create(
           //   'error',

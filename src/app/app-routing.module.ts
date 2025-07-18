@@ -13,11 +13,6 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'devflow',
-    component: DevFlowComponent,
-  },
-
-  {
     path: 'forgot-password',
     component: ForgetComponent,
   },
@@ -51,6 +46,26 @@ const routes: Routes = [
             (m) => m.ProjectsModule
           ),
         data: { title: 'projects' },
+      },
+      {
+        path: 'hr',
+        loadChildren: () =>
+          import('./Layout/Components/HR/hr.module').then((m) => m.HrModule),
+        data: { title: 'Report' },
+      },
+      {
+        path: 'finance',
+        loadChildren: () =>
+          import('./Layout/Components/FINANCE/finance.module').then(
+            (m) => m.FinanceModule
+          ),
+        data: { title: 'finance' },
+      },
+      {
+        path: 'crm',
+        loadChildren: () =>
+          import('./Layout/Components/CRM/crm.module').then((m) => m.CrmModule),
+        data: { title: 'finance' },
       },
       {
         path: 'report',

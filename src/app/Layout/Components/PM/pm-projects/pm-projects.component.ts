@@ -65,6 +65,9 @@ export class PmProjectsComponent {
       nzClassName: 'view-project',
     });
     modal.componentInstance!.data = data;
+    modal.afterClose.subscribe((res: any) => {
+      this.getAllprojects();
+    });
   }
 
   editproject(data: any, index: any) {

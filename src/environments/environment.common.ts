@@ -468,8 +468,23 @@ export const commonEnvironment = {
 
   //members
   getMembers: BASE_URL + '8003/projects/',
-  createMember: BASE_URL + '8003/members',
+  createMember: BASE_URL + '8003/projects/',
   getMemberDetailsById: BASE_URL + '8003/members/', //member Id
-  updateMemberDetails: BASE_URL + '8003/members/', //member Id
+  updateMemberDetails: BASE_URL + '8003/projects/', //member Id
   deleteMemberDetails: BASE_URL + '8003/members/', //member Id
+
+  //setting
+  getAllsettings: BASE_URL + '8003/projects/',
+
+  //tasks
+  getAllTaskList: BASE_URL + '8003/tasks/statuses',
+  createNewTask: BASE_URL + '8003/tasks/',
+  getProjectTasks: BASE_URL + '8003/tasks/',
+
+  //resources
+  getAllresourcesList: BASE_URL + '8003/resources/',
+  addNewResources: BASE_URL + '8003/resources/',
+  getREsourcesData: BASE_URL + '8003/resources/',
+  updateResources: BASE_URL + '8003/resources/',
+  deleteResources: BASE_URL + '8003/resources/',
 };

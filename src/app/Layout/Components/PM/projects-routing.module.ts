@@ -5,6 +5,7 @@ import { PmDashboardComponent } from './pm-dashboard/pm-dashboard.component';
 import { DevFlowComponent } from '../../Pages/dev-flow/dev-flow/dev-flow.component';
 import { PmProjectsComponent } from './pm-projects/pm-projects.component';
 import { TasksComponent } from './Tasks/tasks/tasks.component';
+import { ResourcesComponent } from './resources/resources/resources.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,7 @@ const routes: Routes = [
       { path: '', component: PmDashboardComponent }, // default dashboard
       { path: 'projects', component: PmProjectsComponent },
       { path: 'tasks', component: TasksComponent },
-      // { path: 'finance', component: FinanceDashboardComponent },
+      { path: 'resources', component: ResourcesComponent },
       // { path: 'crm', component: CrmDashboardComponent },
     ],
   },

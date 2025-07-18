@@ -112,6 +112,7 @@ export class DataService {
   //sahan data
   sidebarItem: string = 'admin';
   projectData: any;
+  userId: any;
   permisions: any = {
     'activities:create': false,
     'activities:read': false,

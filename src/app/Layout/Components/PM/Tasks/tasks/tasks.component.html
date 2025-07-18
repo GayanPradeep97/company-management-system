@@ -1,1 +1,62 @@
-<p>tasks works!</p>
+<div>
+  <div nz-row class="table-row">
+    <div nz-col [nzSpan]="12" class="filter-row">
+      <nz-select
+        nzShowSearch
+        nzPlaceHolder="Projects"
+        nzSuffixIcon="caret-down"
+        nzAllowClear="true"
+        (ngModelChange)="getProjectId($event)"
+        [(ngModel)]="projectId"
+      >
+        <nz-option
+          *ngFor="let project of allprojects"
+          [nzValue]="project.id"
+          [nzLabel]="project.name"
+        ></nz-option>
+      </nz-select>
+      <nz-select
+        nzShowSearch
+        nzPlaceHolder="Status"
+        nzSuffixIcon="caret-down"
+        nzAllowClear="true"
+        [(ngModel)]="status"
+        (ngModelChange)="getStatus($event)"
+      >
+        <nz-option nzLabel="In Progress" nzValue="in_Progress"
+          >In Progress</nz-option
+        >
+        <nz-option nzLabel="In Review" nzValue="in_Review">In Review</nz-option>
+        <nz-option nzLabel="To Do" nzValue="to_Do">To Do</nz-option>
+        <nz-option nzLabel="Done" nzValue="done">Done</nz-option>
+      </nz-select>
+      <nz-select
+        nzShowSearch
+        nzPlaceHolder="Assignee"
+        nzSuffixIcon="caret-down"
+        nzAllowClear="true"
+      >
+        <nz-option></nz-option>
+      </nz-select>
+    </div>
+
+    <div nz-col [nzSpan]="12" class="table-col">
+      <button nz-button class="btn" (click)="addNewTask()">New Task</button>
+    </div>
+  </div>
+  <div class="kanban-board">
+    <div
+      class="kanban-column"
+      *ngFor="let column of columns; let colIndex = index"
+      cdkDropList
+      [cdkDropListData]="column.tasks"
+      [cdkDropListConnectedTo]="connectedDropListsIds"
+      [id]="'cdk-drop-list-' + colIndex"
+    >
+      <div class="kanban-column-header">{{ column.title }}</div>
+      <div class="kanban-task-card" *ngFor="let task of column.tasks" cdkDrag>
+        {{ task.title }}
+      </div>
+    </div>
+  </div>
+</div>

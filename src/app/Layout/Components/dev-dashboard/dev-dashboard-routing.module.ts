@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { DevDashboardComponent } from './dev-dashboard.component';
-import { DevFlowComponent } from '../../Pages/dev-flow/dev-flow/dev-flow.component';
 
 const routes: Routes = [
   {
     path: '',
     component: DevDashboardComponent,
-  },
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: '',
+    children: [
+      {
+        path: '',
+        component: DevDashboardComponent, // This will show the dashboard main view
+      },
+      // Add more child routes here if needed, e.g.:
+      // { path: 'workflow', component: WorkflowComponent },
+      // { path: 'project', component: ProjectComponent },
+    ],
   },
 ];
 
@@ -21,3 +23,5 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class DevDashboardRoutingModule {}
+
+// Add child routes here as needed

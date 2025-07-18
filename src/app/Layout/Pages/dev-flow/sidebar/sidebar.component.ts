@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { EventtriggerService } from 'src/app/_services/eventtrigger.service';
 import { DataService } from 'src/app/_services/shared-data/data.service';
 
@@ -19,7 +20,8 @@ export class SidebarComponent {
 
   constructor(
     private dataservice: DataService,
-    private eventTriggerService: EventtriggerService
+    private eventTriggerService: EventtriggerService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -33,6 +35,9 @@ export class SidebarComponent {
 
   onItemClick(itemId: string) {
     this.itemClick.emit(itemId);
+  }
+  navigateToDashboard() {
+    this.router.navigate(['/']);
   }
 
   getIcon(iconName: string): string {
