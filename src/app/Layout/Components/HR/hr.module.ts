@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HrRoutingModule } from './hr-routing.module';
 
-// Components
 import { HrDashboardComponent } from './hr-dashboard/hr-dashboard.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { DepartmentComponent } from './department/department.component';
