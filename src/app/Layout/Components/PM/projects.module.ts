@@ -15,6 +15,9 @@ import { ResourcesComponent } from './resources/resources/resources.component';
 import { AddNewResourcesComponent } from './resources/add-new-resources/add-new-resources.component';
 import { IssuesComponent } from './Issues/issues/issues.component';
 import { AddNewIssuesComponent } from './Issues/add-new-issues/add-new-issues.component';
+import { TestCasesComponent } from './TestCases/test-cases.component';
+import { AddNewTestCaseComponent } from './TestCases/add-new-test-case/add-new-test-case.component';
+import { TimelineComponent } from './Timeline/timeline.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +29,14 @@ import { AddNewIssuesComponent } from './Issues/add-new-issues/add-new-issues.co
     MembersTabComponent,
     AddMemberRoleComponent,
     SettingComponent,
+    TimelineComponent,
     AddNewTaskComponent,
     ResourcesComponent,
     AddNewResourcesComponent,
     IssuesComponent,
     AddNewIssuesComponent,
+    TestCasesComponent,
+    AddNewTestCaseComponent,
   ],
   imports: [CommonModule, ProjectsRoutingModule, SharedModule],
 })

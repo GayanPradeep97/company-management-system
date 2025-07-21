@@ -9,3 +9,5 @@ http://140.245.213.62:8006/docs
 //weda nethi API
 /tasks/{task_id}/status
 /tasks/{task_id}/assignee
+http://140.245.213.62:8003/qa/issues/085a6746-a08c-49e3-8d52-d98851c40185  500 get
+http://140.245.213.62:8003/qa/issues/085a6746-a08c-49e3-8d52-d98851c40185  500 delete

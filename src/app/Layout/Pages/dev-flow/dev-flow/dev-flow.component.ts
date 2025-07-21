@@ -65,11 +65,12 @@ export class DevFlowComponent {
           { id: 'departments', label: 'Departments', icon: 'Departments' },
           { id: 'positions', label: 'Positions', icon: 'Positions' },
           {
-            id: 'leaveRequests',
-            label: 'Leave Requests',
-            icon: 'leaveRequests',
+            id: 'leaves',
+            label: 'leaves',
+            icon: 'leaves',
           },
-          { id: 'perforamance', label: 'Perforamance', icon: 'Perforamance' },
+          { id: 'performance', label: 'performance', icon: 'performance' },
+          { id: 'interview', label: 'interview', icon: 'interview' },
         ];
         break;
       case 'finance':
@@ -86,7 +87,7 @@ export class DevFlowComponent {
         this.sidebarItems = [
           { id: 'dashboard', label: 'Dashboard', icon: 'home' },
           { id: 'companies', label: 'Companies', icon: 'Companies' },
-          { id: 'deals', label: 'Deals', icon: 'Deals' },
+
           { id: 'activities', label: 'Activities', icon: 'Activities' },
           { id: 'contracts', label: 'Contracts', icon: 'Contracts' },
           { id: 'contacts', label: 'Contacts', icon: 'Contacts' },
@@ -94,6 +95,16 @@ export class DevFlowComponent {
             id: 'communications',
             label: 'Communications',
             icon: 'Communications',
+          },
+          {
+            id: 'perposals',
+            label: 'Perposals',
+            icon: 'perposals',
+          },
+          {
+            id: 'deals',
+            label: 'Deals',
+            icon: 'deals',
           },
         ];
         break;
@@ -134,6 +145,63 @@ export class DevFlowComponent {
           break;
         case 'reports':
           this.router.navigate(['/projects/reports']);
+          break;
+      }
+    } else if (this.urlLink === 'hr') {
+      switch (section) {
+        case 'dashboard':
+          this.router.navigate(['/hr']);
+          break;
+        case 'employees':
+          this.router.navigate(['/hr/employees']);
+          break;
+        case 'departments':
+          this.router.navigate(['/hr/departments']);
+          break;
+        case 'positions':
+          this.router.navigate(['/hr/positions']);
+          break;
+        case 'leaves':
+          this.router.navigate(['/hr/leaves']);
+          break;
+        case 'performance':
+          this.router.navigate(['/hr/performance']);
+          break;
+        case 'interview':
+          this.router.navigate(['/hr/interview']);
+          break;
+        case 'testcases':
+          this.router.navigate(['/projects/testcases']);
+          break;
+        case 'reports':
+          this.router.navigate(['/projects/reports']);
+          break;
+      }
+    } else if (this.urlLink === 'crm') {
+      switch (section) {
+        case 'dashboard':
+          this.router.navigate(['/crm']);
+          break;
+        case 'companies':
+          this.router.navigate(['/crm/companies']);
+          break;
+        case 'activities':
+          this.router.navigate(['/crm/activities']);
+          break;
+        case 'contracts':
+          this.router.navigate(['/crm/contracts']);
+          break;
+        case 'contacts':
+          this.router.navigate(['/crm/contacts']);
+          break;
+        case 'communications':
+          this.router.navigate(['/crm/communications']);
+          break;
+        case 'perposals':
+          this.router.navigate(['/crm/perposals']);
+          break;
+        case 'deals':
+          this.router.navigate(['/crm/deals']);
           break;
       }
     }

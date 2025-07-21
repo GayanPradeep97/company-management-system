@@ -17,7 +17,9 @@
   </div>
 
   <div nz-col [nzSpan]="12" class="add-button">
-    <button class="btn button">Create New Issue</button>
+    <button class="btn button" (click)="createNewIssue('create')">
+      Create New Issue
+    </button>
   </div>
 </div>
 
@@ -103,7 +105,7 @@
             <button
               class="action-button delete"
               title="Delete"
-              (click)="deleteproject(data.id)"
+              (click)="deleteIssue(data.id)"
             >
               <svg
                 width="16"

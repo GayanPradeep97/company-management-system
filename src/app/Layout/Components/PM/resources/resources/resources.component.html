@@ -4,7 +4,7 @@
   </div>
 
   <div nz-col [nzSpan]="12" class="add-button">
-    <button class="btn button" (click)="addNewResource()">
+    <button class="btn button" (click)="addNewResource('create')">
       Create New Resources
     </button>
   </div>
@@ -57,7 +57,11 @@
         </td>
         <td>
           <div class="border-middle btn-section">
-            <button class="action-button view" title="View">
+            <button
+              class="action-button view"
+              title="View"
+              (click)="viewResources(data, 'view')"
+            >
               <svg
                 width="16"
                 height="16"

@@ -41,17 +41,20 @@
     display: flex
     align-items: center
     border-radius: 5px
-    height: 35px
+    // height: 35px
+    @include media_query_all_im(50,null,null,null,null,50,'height')
     border: 0.5px solid rgba(0, 0, 0, 0.4) !important
     transition: none
     border-radius: 5px
 
 .get-started-figure .ant-select-single:not(.ant-select-customize-input) .ant-select-selector
-    height: 35px
+    // height: 35px
+    @include media_query_all_im(50,null,null,null,null,50,'height')
     background: transparent
     border-radius: 5px
 .ant-select-single:not(.ant-select-customize-input) .ant-select-selector
-    height: 50px
+    // height: 50px
+    @include media_query_all_im(50,null,null,null,null,50,'height')
     border: 0.5px solid rgba(0, 0, 0, 0.4) !important
     border-radius: 5px
 .get-started-figure .ant-select-selection-item
@@ -68,19 +71,23 @@
     display: flex
     align-items: center
 .ant-select-single .ant-select-selector .ant-select-selection-placeholder
-    line-height: 50px
+    // line-height: 50px
+    @include media_query_all_im(50,null,null,null,null,50,'line-height')
 // .ant-select.ant-select-show-arrow.ant-select-focused.ant-select-open .ant-select-arrow
 //     transform: rotate(180deg)
 
 .ant-dropdown-trigger
     border-radius: 5px
     border: 1px solid $input-border
-    height: 52px
+    // height: 52px
+    @include media_query_all_im(50,null,null,null,null,50,'height')
     width: 304px
 
 .ant-dropdown-trigger .ant-dropdown-link
     width: 305px
-    height: 35px
+    // height: 35px
+    @include media_query_all_im(50,null,null,null,null,50,'height')
+    
 
 .ant-select-single.ant-select-show-arrow .ant-select-selection-search
     right: 25px

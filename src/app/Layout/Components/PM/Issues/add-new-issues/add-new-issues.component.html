@@ -90,7 +90,7 @@
               nzSuffixIcon="caret-down"
               nzAllowClear="true"
               formControlName="assignee"
-              [(ngModel)]="assignee"
+              [(ngModel)]="assigneeId"
             >
               <nz-option
                 *ngFor="let project of allMembers"
@@ -115,7 +115,7 @@
               nzSuffixIcon="caret-down"
               nzAllowClear="true"
               formControlName="reporter"
-              [(ngModel)]="assignee"
+              [(ngModel)]="assigneeId"
             >
               <nz-option
                 *ngFor="let project of allReporters"
@@ -138,7 +138,7 @@
               nzSuffixIcon="caret-down"
               nzAllowClear="true"
               formControlName="project"
-              [(ngModel)]="assignee"
+              [(ngModel)]="assigneeId"
             >
               <nz-option
                 *ngFor="let project of allPeojects"
@@ -181,6 +181,7 @@
         nzMd="6"
         nz-button
         class="btn btn__high_orange"
+        *ngIf="index !== 'view'"
         (click)="index === 'edit' ? updateIssues() : createNewIssues()"
       >
         {{ index === "edit" ? "Update Issue" : "Add Issue" }}

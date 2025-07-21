@@ -498,7 +498,31 @@ export const commonEnvironment = {
   //issues
   getAllissuesList: BASE_URL + '8003/qa/issues/',
   addNewIssues: BASE_URL + '8003/qa/issues/',
-  getIssuesData: BASE_URL + '8003//qa/issues/',
+  getIssuesData: BASE_URL + '8003/qa/issues/',
   updateIssues: BASE_URL + '8003/qa/issues/',
   deleteIssues: BASE_URL + '8003/qa/issues/',
+
+  //testcaes
+  getAllTestCases: BASE_URL + '8003/qa/test-cases/',
+  CreateTestCases: BASE_URL + '8003/qa/test-cases/',
+  updateTestCases: BASE_URL + '8003/qa/test-cases/',
+  deleteTestCases: BASE_URL + '8003/qa/test-cases/',
+
+  //HR Management---------------------------------
+
+  //employee
+  getEmployees: BASE_URL + '8001/employees/',
+  createEmployee: BASE_URL + '8001/employees/',
+  getEmployeeDetailsById: BASE_URL + '8001/employees/',
+  updateEmployeeDetails: BASE_URL + '8001/employees/',
+  deleteEmployeeDetails: BASE_URL + '8001/employees/',
+
+  //department
+  getDepartments: BASE_URL + '8001/departments/',
+  createDepartment: BASE_URL + '8001/departments/',
+  updateDepartment: BASE_URL + '8001/departments/',
+  deleteDepartment: BASE_URL + '8001/departments/',
+
+  //positions
+  getPositions: BASE_URL + '8001/positions/',
 };

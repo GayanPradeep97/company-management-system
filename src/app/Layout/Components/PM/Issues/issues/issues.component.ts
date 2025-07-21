@@ -61,9 +61,23 @@ export class IssuesComponent {
     });
   }
 
+  createNewIssue(index: any) {
+    const modal = this.modalService.create({
+      nzTitle: 'Create Issue',
+      nzContent: AddNewIssuesComponent,
+      nzFooter: null,
+      nzWidth: 800,
+      nzClassName: 'create-resources',
+    });
+    modal.componentInstance!.index = index;
+    modal.afterClose.subscribe((res: any) => {
+      this.getAllIssues();
+    });
+  }
+
   viewIssue(data: any, index: any) {
     const modal = this.modalService.create({
-      nzTitle: 'Create Resources',
+      nzTitle: 'View Issue',
       nzContent: AddNewIssuesComponent,
       nzFooter: null,
       nzWidth: 800,
@@ -77,7 +91,7 @@ export class IssuesComponent {
   }
   editIssues(data: any, index: any) {
     const modal = this.modalService.create({
-      nzTitle: 'Create Resources',
+      nzTitle: 'Edit Issue',
       nzContent: AddNewIssuesComponent,
       nzFooter: null,
       nzWidth: 800,
@@ -89,7 +103,14 @@ export class IssuesComponent {
       this.getAllIssues();
     });
   }
-  deleteproject(data: any) {}
+  deleteIssue(data: any) {
+    this.issuesService.deleteIssue(data).subscribe((res: any) => {
+      if (res) {
+        console.log(res);
+        this.allprojects = res['data'];
+      }
+    });
+  }
 
   pageIndexChange(selectedIndex: any) {
     this.currentPageIndex = selectedIndex;

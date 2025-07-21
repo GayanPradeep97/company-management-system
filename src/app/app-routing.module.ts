@@ -51,7 +51,7 @@ const routes: Routes = [
         path: 'hr',
         loadChildren: () =>
           import('./Layout/Components/HR/hr.module').then((m) => m.HrModule),
-        data: { title: 'Report' },
+        data: { title: 'HR' },
       },
       {
         path: 'finance',

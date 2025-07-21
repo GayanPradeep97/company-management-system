@@ -124,6 +124,7 @@
         nzMd="6"
         nz-button
         class="btn btn__high_orange"
+        *ngIf="index !== 'view'"
         (click)="index === 'edit' ? updateResources() : createNewresource()"
       >
         {{ index === "edit" ? "Update Resource" : "Add Resource" }}

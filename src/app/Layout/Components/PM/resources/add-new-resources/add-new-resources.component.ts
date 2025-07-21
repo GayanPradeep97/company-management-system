@@ -41,6 +41,10 @@ export class AddNewResourcesComponent {
     if (this.index !== 'create') {
       this.getProgectData();
     }
+
+    if (this.index === 'view') {
+      this.resourcesForm.disable();
+    }
   }
 
   get name() {

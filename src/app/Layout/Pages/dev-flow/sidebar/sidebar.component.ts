@@ -107,6 +107,11 @@ export class SidebarComponent {
           label: 'Communications',
           icon: 'Communications',
         },
+        {
+          id: 'deals',
+          label: 'Deals',
+          icon: 'deals',
+        },
       ];
     }
   }

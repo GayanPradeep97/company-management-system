@@ -45,7 +45,7 @@ export class ResourcesComponent {
     });
   }
 
-  addNewResource() {
+  addNewResource(index: any) {
     const modal = this.modalService.create({
       nzTitle: 'Create Resources',
       nzContent: AddNewResourcesComponent,
@@ -53,23 +53,26 @@ export class ResourcesComponent {
       nzWidth: 800,
       nzClassName: 'create-resources',
     });
+    modal.componentInstance!.index = index;
+    modal.afterClose.subscribe((res: any) => {
+      this.getAllResourcesList();
+    });
   }
 
-  // viewproject(data: any) {
-  //     this.dataService.projectData = data;
-  //     console.log('', this.dataService.projectData.id);
-  //     const modal = this.modalService.create({
-  //       nzTitle: 'View Project',
-  //       nzContent: ViewProjectComponent,
-  //       nzFooter: null,
-  //       nzWidth: 800,
-  //       nzClassName: 'view-project',
-  //     });
-  //     modal.componentInstance!.data = data;
-  //     modal.afterClose.subscribe((res: any) => {
-  //       this.getAllprojects();
-  //     });
-  //   }
+  viewResources(data: any, index: any) {
+    const modal = this.modalService.create({
+      nzTitle: 'View Project',
+      nzContent: AddNewResourcesComponent,
+      nzFooter: null,
+      nzWidth: 800,
+      nzClassName: 'view-project',
+    });
+    modal.componentInstance!.data = data;
+    modal.componentInstance!.index = index;
+    modal.afterClose.subscribe((res: any) => {
+      this.getAllResourcesList();
+    });
+  }
 
   editResources(data: any, index: any) {
     const modal = this.modalService.create({
@@ -87,10 +90,22 @@ export class ResourcesComponent {
   }
 
   deleteproject(id: any) {
-    this.resourcesService.deleteResourceDataByid(id).subscribe((res: any) => {
-      if (res) {
-        this.getAllResourcesList();
-      }
+    this.modalService.confirm({
+      nzTitle: 'Are you sure you want to delete this resource?',
+      nzContent: 'This action cannot be undone.',
+      nzOkText: 'Yes, Delete',
+      nzOkType: 'primary',
+      nzOkDanger: true,
+      nzCancelText: 'No, Cancel',
+      nzOnOk: () => {
+        this.resourcesService
+          .deleteResourceDataByid(id)
+          .subscribe((res: any) => {
+            if (res) {
+              this.getAllResourcesList();
+            }
+          });
+      },
     });
   }
 

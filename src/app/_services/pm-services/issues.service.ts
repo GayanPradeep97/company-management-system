@@ -42,8 +42,8 @@ export class IssuesService {
     );
   }
 
-  getProjectDataById(id: any) {
-    const url = environment.getProjectDetailsById + id;
+  getIssuesDataById(id: any) {
+    const url = environment.getIssuesData + id;
     return this.http.get(url).pipe(
       catchError((error) => {
         return this.commonService.catchError(error);
@@ -66,8 +66,8 @@ export class IssuesService {
     );
   }
 
-  deleteProjectData(id: any) {
-    const url = environment.deleteProjectDetails + id;
+  deleteIssue(id: any) {
+    const url = environment.deleteIssues + id;
     return this.http.delete(url).pipe(
       catchError((error) => {
         return this.commonService.catchError(error);

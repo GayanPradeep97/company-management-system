@@ -25,6 +25,7 @@ import { NzListModule } from 'ng-zorro-antd/list';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { WarningOutline } from '@ant-design/icons-angular/icons';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
@@ -43,7 +44,7 @@ import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, NzIconModule],
+  imports: [CommonModule, NzIconModule.forRoot([WarningOutline])],
   exports: [
     FormsModule,
     ReactiveFormsModule,
