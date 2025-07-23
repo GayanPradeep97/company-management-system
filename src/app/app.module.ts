@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
-import { NzSelectModule } from 'ng-zorro-antd/select';
 import { ForgetComponent } from './Layout/Pages/forgot-password/forgot-password.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserManagementModule } from './Layout/Components/user-management/user-management.module';

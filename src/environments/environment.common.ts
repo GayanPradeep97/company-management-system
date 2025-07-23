@@ -456,6 +456,7 @@ export const commonEnvironment = {
   authenticate: BASE_URL + '8000/auth/login',
   refresh: BASE_URL + '8000/auth/refresh-token',
   getUsers: BASE_URL + '8000/auth/users',
+  getUserdetailsMe: BASE_URL + '8000/auth/users/me',
   //privilages
   getPrivileges: BASE_URL + '8000/auth/roles/permissions',
   getUserDetails: BASE_URL + '8000/auth/users/me',
@@ -525,4 +526,39 @@ export const commonEnvironment = {
 
   //positions
   getPositions: BASE_URL + '8001/positions/',
+  createPosition: BASE_URL + '8001/positions/',
+  getpositionDetailsById: BASE_URL + '8001/positions/',
+  updatePosition: BASE_URL + '8001/positions/',
+  deletePosition: BASE_URL + '8001/positions/',
+
+  //leaves
+  getLeavesAll: BASE_URL + '8001/leaves/',
+  createLEaveRequest: BASE_URL + '8001/leaves/',
+  getleaveDetailsById: BASE_URL + '8001/leaves/',
+  updateLeaverequest: BASE_URL + '8001/leaves/',
+  deletePLeave: BASE_URL + '8001/leaves/',
+
+  //performance
+  getPeroformanceAll: BASE_URL + '8001/performances/',
+  getPeroformanceAllMe: BASE_URL + '8001/performances/me',
+  createPerformance: BASE_URL + '8001/performances/',
+  getPerformanceDetailsById: BASE_URL + '8001/performances/',
+  updatePerformance: BASE_URL + '8001/performances/',
+  deletePerformance: BASE_URL + '8001/performances/',
+  getPerformancebyEmployee: BASE_URL + '8001/performances/employee/',
+  readPeroformanceByMe: BASE_URL + '8001/performances/as-reviewer',
+
+  //job posting
+  getAllJobPosting: BASE_URL + '8001/job-postings/',
+  createJobPosting: BASE_URL + '8001/job-postings/',
+  getJobPostingDetailsById: BASE_URL + '8001/job-postings/',
+  updateJobPosting: BASE_URL + '8001/job-postings/',
+  deleteJobPosting: BASE_URL + '8001/job-postings/',
+
+  //interview
+  getAllInterviews: BASE_URL + '8001/interviews/',
+  createnewInterview: BASE_URL + '8001/interviews/',
+  getintrviewDetailsById: BASE_URL + '8001/interviews/',
+  updateInterview: BASE_URL + '8001/interviews/',
+  deleteInterview: BASE_URL + '8001/interviews/',
 };

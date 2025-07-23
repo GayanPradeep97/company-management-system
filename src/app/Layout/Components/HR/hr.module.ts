@@ -19,6 +19,13 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { AddNewDepartmentComponent } from './department/add-new-department/add-new-department.component';
+import { AddNewPositionComponent } from './positions/add-new-position/add-new-position.component';
+import { AddNewLeaveComponent } from './leaves/add-new-leave/add-new-leave.component';
+import { AddNewPerformanceComponent } from './performance/add-new-performance/add-new-performance.component';
+import { JobPostingComponent } from './job-posting/job-posting.component';
+import { JobApplicatonsComponent } from './job-applicatons/job-applicatons.component';
+import { AddNewJobpostComponent } from './job-posting/add-new-jobpost/add-new-jobpost.component';
+import { InterviewComponent } from './interview/interview.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +38,13 @@ import { AddNewDepartmentComponent } from './department/add-new-department/add-n
     AddNewEmployeeComponent,
     ViewEmployeeComponent,
     AddNewDepartmentComponent,
+    AddNewPositionComponent,
+    AddNewLeaveComponent,
+    AddNewPerformanceComponent,
+    JobPostingComponent,
+    JobApplicatonsComponent,
+    AddNewJobpostComponent,
+    InterviewComponent,
   ],
   imports: [
     CommonModule,

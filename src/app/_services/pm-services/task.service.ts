@@ -97,9 +97,9 @@ export class TaskService {
       })
     );
   }
-  updaterTaskEndpoint(data: any) {
+  updaterTaskEndpoint(data: any, form: any) {
     const url = environment.updateTaskDetails + data.id + '/status';
-    return this.http.put(url, data.status).pipe(
+    return this.http.put(url, form).pipe(
       catchError((error) => {
         return this.commonService.catchError(error);
       }),

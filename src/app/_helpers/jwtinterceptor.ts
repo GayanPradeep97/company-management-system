@@ -86,11 +86,13 @@ export class JwtInterceptor implements HttpInterceptor {
           console.log('401 un authorized');
           const token = this.tokenService.getRefreshToken();
           if (token) {
+            this.getUserDetailsByme();
             return this.handle401Error(authReq, next);
+          } else {
+            localStorage.clear();
+            this.router.navigate(['/login']);
+            window.location.reload();
           }
-          localStorage.clear();
-          this.router.navigate(['/login']);
-          window.location.reload();
         }
         return throwError(() => error);
       }),
@@ -119,6 +121,7 @@ export class JwtInterceptor implements HttpInterceptor {
             localStorage.setItem('isToken', 'true');
             this.refreshTokenSubject.next(token['access_token']);
             this.getUserDEtails();
+            this.getUserDetailsByme();
             return next.handle(
               this.addTokenHeader(request, token['access_token'])
             );
@@ -226,6 +229,13 @@ export class JwtInterceptor implements HttpInterceptor {
           }
         },
       });
+  }
+
+  getUserDetailsByme() {
+    this.authService.getUsersDetialsBy().subscribe((res: any) => {
+      this.dataService.userDetails = res;
+      console.log('this.userDetails', this.dataService.userDetails);
+    });
   }
 
   stopLoader() {

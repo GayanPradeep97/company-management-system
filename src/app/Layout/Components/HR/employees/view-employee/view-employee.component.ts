@@ -55,7 +55,8 @@ export class ViewEmployeeComponent implements OnInit {
   }
 
   getPositions() {
-    this.positionsService.getAllPositions().subscribe((res) => {
+    const data = { skip: 1, limit: 100 };
+    this.positionsService.getAllPositions(data).subscribe((res) => {
       this.positions = res;
     });
   }

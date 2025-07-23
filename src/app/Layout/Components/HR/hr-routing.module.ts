@@ -6,6 +6,9 @@ import { DepartmentComponent } from './department/department.component';
 import { PositionsComponent } from './positions/positions.component';
 import { LeavesComponent } from './leaves/leaves.component';
 import { PerformanceComponent } from './performance/performance.component';
+import { JobPostingComponent } from './job-posting/job-posting.component';
+import { JobApplicatonsComponent } from './job-applicatons/job-applicatons.component';
+import { InterviewComponent } from './interview/interview.component';
 
 const routes: Routes = [
   {
@@ -21,11 +24,10 @@ const routes: Routes = [
       { path: 'departments', component: DepartmentComponent },
       { path: 'positions', component: PositionsComponent },
       { path: 'leaves', component: LeavesComponent },
-
       { path: 'performance', component: PerformanceComponent },
-      // { path: 'recruitment', component: RecruitmentComponent },
-      // { path: 'training', component: TrainingComponent },
-      // { path: 'reports', component: ReportsComponent },
+      { path: 'jobposting', component: JobPostingComponent },
+      { path: 'jobapplication', component: JobApplicatonsComponent },
+      { path: 'interview', component: InterviewComponent },
     ],
   },
 ];

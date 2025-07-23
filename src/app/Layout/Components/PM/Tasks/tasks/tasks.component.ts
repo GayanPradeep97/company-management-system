@@ -87,16 +87,21 @@ export class TasksComponent {
 
   updateEndpoint(values: any) {
     const data: any = [];
-    data['status'] = values.status;
+
     data['id'] = values.id;
 
-    this.taskService.updaterTaskEndpoint(data).subscribe((res: any) => {
-      if (res) {
-        this.getAllprojectTasks();
-        this.getAllTaskslist();
-        this.getAllprojects();
-      }
-    });
+    const formdata: any = {
+      status: values.status,
+    };
+    this.taskService
+      .updaterTaskEndpoint(data, formdata)
+      .subscribe((res: any) => {
+        if (res) {
+          this.getAllprojectTasks();
+          this.getAllTaskslist();
+          this.getAllprojects();
+        }
+      });
   }
 
   getAllTaskslist() {

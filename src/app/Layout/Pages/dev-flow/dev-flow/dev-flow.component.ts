@@ -66,11 +66,17 @@ export class DevFlowComponent {
           { id: 'positions', label: 'Positions', icon: 'Positions' },
           {
             id: 'leaves',
-            label: 'leaves',
+            label: 'Leaves',
             icon: 'leaves',
           },
-          { id: 'performance', label: 'performance', icon: 'performance' },
-          { id: 'interview', label: 'interview', icon: 'interview' },
+          { id: 'performance', label: 'Performance', icon: 'performance' },
+          { id: 'interview', label: 'Interview', icon: 'interview' },
+          { id: 'jobposting', label: 'Job Posting', icon: 'jobposting' },
+          {
+            id: 'jobapplication',
+            label: 'Job Application',
+            icon: 'jobapplication',
+          },
         ];
         break;
       case 'finance':
@@ -170,11 +176,12 @@ export class DevFlowComponent {
         case 'interview':
           this.router.navigate(['/hr/interview']);
           break;
-        case 'testcases':
-          this.router.navigate(['/projects/testcases']);
+
+        case 'jobposting':
+          this.router.navigate(['/hr/jobposting']);
           break;
-        case 'reports':
-          this.router.navigate(['/projects/reports']);
+        case 'jobapplication':
+          this.router.navigate(['/hr/jobapplication']);
           break;
       }
     } else if (this.urlLink === 'crm') {

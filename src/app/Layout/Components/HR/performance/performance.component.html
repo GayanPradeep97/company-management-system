@@ -1,32 +1,55 @@
-<div nz-row class="title-bar">
-  <div nz-col [nzSpan]="8">
-    <input nz-input placeholder="Search" />
+<div nz-row [nzGutter]="24" class="title-bar">
+  <div nz-col [nzSpan]="18" class="right">
+    <div nz-col [nzSpan]="5">
+      <button (click)="showMyPerformance()" class="my-performance">
+        My proformnace
+      </button>
+    </div>
+    <div nz-col [nzSpan]="4">
+      <nz-select
+        nzPlaceHolder="Select Employee"
+        (ngModelChange)="getEmployee($event)"
+        [(ngModel)]="employeeById"
+        nzAllowClear="true"
+        nzShowSearch
+      >
+        <nz-option
+          *ngFor="let data of Employees"
+          [nzValue]="data.id"
+          [nzLabel]="data.first_name + ' ' + data.last_name"
+        >
+        </nz-option>
+      </nz-select>
+    </div>
   </div>
 
-  <div nz-col [nzSpan]="12" class="add-button">
-    <button class="btn button">Add New project</button>
+  <div nz-col [nzSpan]="12" style="display: flex; justify-content: right">
+    <div nz-col [nzSpan]="6" class="add-button">
+      <button class="btn button" (click)="addPerformance('create')">
+        Add New Performance
+      </button>
+    </div>
   </div>
 </div>
 
 <div class="table-container">
   <nz-table
     #basicTable
-    [nzData]="allprojects"
+    [nzData]="allperformance"
     [nzPageSize]="50"
     [nzShowPagination]="false"
   >
     <thead>
       <tr class="heading_tr">
-        <th><div class="border-start-th">NAME</div></th>
-        <th><div class="border-middle-th">START DATE</div></th>
+        <th><div class="border-start-th">REVIEW PERIOD</div></th>
+        <th><div class="border-start-th">RATING</div></th>
+        <th><div class="border-middle-th">COMMENTS</div></th>
         <th>
-          <div class="border-middle-th">END DATE</div>
+          <div class="border-middle-th">REVIEW DATE</div>
         </th>
         <th><div class="border-start-th">CREATED DATE</div></th>
         <th><div class="border-middle-th">UPDATED DATE</div></th>
-        <th>
-          <div class="border-middle-th">STATUS</div>
-        </th>
+
         <th><div class="border-middle-th"></div></th>
       </tr>
     </thead>
@@ -34,14 +57,17 @@
     <tbody class="body_tr">
       <tr *ngFor="let data of basicTable.data">
         <td>
-          <div class="border-middle">{{ data?.name }}</div>
+          <div class="border-middle">{{ data?.review_period }}</div>
         </td>
         <td>
-          <div class="border-middle">{{ data?.start_date }}</div>
+          <div class="border-middle">{{ data?.rating }}</div>
+        </td>
+        <td>
+          <div class="border-middle">{{ data?.comments }}</div>
         </td>
         <td>
           <div class="border-middle">
-            {{ data?.end_date }}
+            {{ data?.review_date }}
           </div>
         </td>
         <td>
@@ -50,25 +76,14 @@
         <td>
           <div class="border-middle">{{ data?.updated_at }}</div>
         </td>
-        <td>
-          <div class="border-middle">{{ data?.status }}</div>
-        </td>
+
         <td>
           <div class="border-middle btn-section">
-            <button class="action-button view" title="View">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                <circle cx="12" cy="12" r="3" />
-              </svg>
-            </button>
-            <button class="action-button edit" title="Edit">
+            <button
+              class="action-button edit"
+              title="Edit"
+              (click)="editPerformance(data, 'edit')"
+            >
               <svg
                 width="16"
                 height="16"
@@ -83,7 +98,11 @@
                 <path d="m18.5 2.5 3 3L12 15l-4 1 1-4 9.5-9.5z" />
               </svg>
             </button>
-            <button class="action-button delete" title="Delete">
+            <button
+              class="action-button delete"
+              title="Delete"
+              (click)="deletePerformance(data.id)"
+            >
               <svg
                 width="16"
                 height="16"

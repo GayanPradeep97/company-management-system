@@ -145,4 +145,17 @@ export class AuthserviceService {
       })
     );
   }
+
+  getUsersDetialsBy() {
+    const url = environment.getUserdetailsMe;
+    return this.http.get(url).pipe(
+      catchError((err) => {
+        return this.commonService.catchError(err);
+      }),
+      map((response: any) => {
+        // this.responseHandler();
+        return response;
+      })
+    );
+  }
 }

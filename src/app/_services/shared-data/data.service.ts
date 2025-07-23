@@ -113,6 +113,7 @@ export class DataService {
   sidebarItem: string = 'admin';
   projectData: any;
   userId: any;
+  userDetails: any;
   permisions: any = {
     'activities:create': false,
     'activities:read': false,

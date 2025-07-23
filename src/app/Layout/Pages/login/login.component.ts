@@ -32,6 +32,7 @@ export class LoginComponent {
   passwordVisible = false;
   error = '';
   resetPasswordToken: any;
+  userDetails: any = null;
 
   private unsubscribe$ = new Subject<void>();
   autoTips: Record<string, Record<string, string>> = {
@@ -215,6 +216,7 @@ export class LoginComponent {
           this.tokenService.saveRefreshToken(data.refresh_token);
           this.dataService.loggedInUser = this.loginForm?.value.userName;
           this.dataService.loggedInPassword = this.loginForm?.value.password;
+          this.getUserDetailsByme();
           this.router.navigateByUrl('');
         } else if (data['errorDescription']) {
           // this.notificationService.create(
@@ -235,6 +237,14 @@ export class LoginComponent {
       },
     });
     // this.modalRef.destroy();
+  }
+
+  getUserDetailsByme() {
+    this.authService.getUsersDetialsBy().subscribe((res: any) => {
+      this.userDetails = res;
+      this.dataService.userDetails = this.userDetails;
+      console.log('this.userDetails', this.userDetails);
+    });
   }
 
   otpOpen() {
